@@ -1,0 +1,171 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <meta name="theme-color" content="#f7f5f0">
+  <link rel="canonical" href="">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="">
+  <meta property="og:description" content="">
+  <meta property="og:url" content="">
+  <title>이야기 | 뉴베리니팅</title>
+  <link rel="stylesheet" href="../styles.css">
+</head>
+<body class="story-page-body">
+  <a class="skip-link" href="#main">본문 바로가기</a>
+  <header class="site-header" id="top">
+    <div class="header-inner">
+      <a class="brand" href="../index.html" aria-label="뉴베리니팅 홈">
+        <img src="../assets/newberry-logo.png" alt="뉴베리니팅" width="250" height="112">
+      </a>
+      <button class="menu-button" type="button" aria-expanded="false" aria-controls="site-nav">
+        <span></span><span></span><span></span><span class="sr-only">메뉴 열기</span>
+      </button>
+      <nav class="site-nav" id="site-nav" aria-label="주요 메뉴">
+        <a href="../index.html#home">홈</a>
+        <a href="../about.html">내 소개</a>
+        <a href="../products.html">제품</a>
+        <a class="active" href="./" aria-current="page">이야기</a>
+        <a href="../index.html#contact">연락하기</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="story-post-wrap" id="main">
+    <a class="story-back" href="./"><span aria-hidden="true">←</span> 이야기 목록</a>
+    <div id="post-content" aria-live="polite"></div>
+  </main>
+
+  <footer class="site-footer">
+    <a class="brand footer-brand" href="../index.html"><img src="../assets/newberry-logo.png" alt="뉴베리니팅" width="250" height="112"></a>
+    <p>미국의 손끝에서, 당신의 겨울로.</p>
+    <p class="copyright">© <span id="year"></span> NEWBERRY KNITTING</p>
+  </footer>
+
+  <script src="../script.js"></script>
+  <script>
+    (() => {
+      const main = document.querySelector('#post-content');
+      const element = (tag, className, text) => {
+        const node = document.createElement(tag);
+        if (className) node.className = className;
+        if (text !== undefined) node.textContent = text;
+        return node;
+      };
+      const formatDate = (date) => new Intl.DateTimeFormat('ko-KR', {
+        year: 'numeric', month: '2-digit', day: '2-digit'
+      }).format(new Date(`${date}T00:00:00`));
+      const postHref = (post) => post.url || `post.html?id=${encodeURIComponent(post.id || '')}`;
+
+      function renderBody(source) {
+        const container = element('div', 'post-body');
+        String(source || '').replace(/\r\n/g, '\n').split(/\n\s*\n/).forEach((block) => {
+          const value = block.trim();
+          if (!value) return;
+          const lines = value.split('\n');
+          if (lines.every((line) => /^- /.test(line.trim()))) {
+            const list = element('ul');
+            lines.forEach((line) => list.append(element('li', '', line.trim().slice(2))));
+            container.append(list);
+          } else if (/^## /.test(value)) {
+            container.append(element('h2', '', value.slice(3).trim()));
+          } else {
+            container.append(element('p', '', value));
+          }
+        });
+        return container;
+      }
+
+      function setMetadata(post) {
+        const title = post.title || '이야기';
+        const description = String(post.description || post.summary || '').slice(0, 160);
+        const canonical = `${location.origin}${location.pathname}?id=${encodeURIComponent(post.id || '')}`;
+        document.title = `${title} | 뉴베리니팅`;
+        const values = {
+          'meta[name="description"]': description,
+          'meta[name="author"]': post.author || '',
+          'meta[property="og:title"]': title,
+          'meta[property="og:description"]': description,
+          'meta[property="og:url"]': canonical,
+          'link[rel="canonical"]': canonical
+        };
+        Object.entries(values).forEach(([selector, value]) => {
+          const node = document.querySelector(selector);
+          node?.setAttribute(selector.startsWith('link') ? 'href' : 'content', value);
+        });
+      }
+
+      function renderNotFound() {
+        const box = element('div', 'post-not-found');
+        box.append(element('h1', '', '글을 찾을 수 없습니다'));
+        box.append(element('p', '', '주소가 잘못되었거나 삭제된 글일 수 있어요.'));
+        const link = element('a', 'button button-primary', '이야기 목록으로');
+        link.href = './';
+        box.append(link);
+        main.append(box);
+      }
+
+      function render(posts) {
+        const id = new URLSearchParams(location.search).get('id');
+        const sorted = (Array.isArray(posts) ? posts : []).slice().sort((a, b) => String(b.date || '').localeCompare(String(a.date || '')));
+        const index = sorted.findIndex((post) => String(post.id) === id);
+        if (index < 0) return renderNotFound();
+
+        const post = sorted[index];
+        setMetadata(post);
+        const article = element('article', 'story-post-article');
+        const header = element('header', 'story-post-head');
+        const time = element('time', '', formatDate(post.date));
+        time.dateTime = post.date || '';
+        header.append(time, element('h1', '', post.title || '(제목 없음)'));
+        if (post.author) header.append(element('p', 'story-post-author', post.author));
+        if (Array.isArray(post.tags) && post.tags.length) {
+          const tags = element('div', 'story-post-tags');
+          post.tags.forEach((tag) => tags.append(element('span', '', tag)));
+          header.append(tags);
+        }
+        article.append(header, renderBody(post.body));
+
+        if (Array.isArray(post.faq) && post.faq.length) {
+          const faq = element('section', 'story-faq');
+          faq.append(element('h2', '', '자주 묻는 질문'));
+          post.faq.forEach((item) => {
+            const details = element('details');
+            details.append(element('summary', '', item.q), element('p', '', item.a));
+            faq.append(details);
+          });
+          article.append(faq);
+        }
+
+        const older = sorted[index + 1];
+        const newer = sorted[index - 1];
+        if (older || newer) {
+          const navigation = element('nav', 'story-post-nav');
+          navigation.setAttribute('aria-label', '다른 이야기');
+          [older, newer].forEach((item, itemIndex) => {
+            if (!item) return navigation.append(element('span'));
+            const link = element('a', itemIndex ? 'next' : 'previous');
+            link.href = postHref(item);
+            link.append(element('span', 'story-post-direction', itemIndex ? '다음 글' : '이전 글'));
+            link.append(element('strong', '', item.title || ''));
+            navigation.append(link);
+          });
+          article.append(navigation);
+        }
+        main.append(article);
+      }
+
+      fetch('posts.json', { cache: 'no-store' })
+        .then((response) => {
+          if (!response.ok) throw new Error(`HTTP ${response.status}`);
+          return response.json();
+        })
+        .then(render)
+        .catch(renderNotFound);
+    })();
+  </script>
+</body>
+</html>

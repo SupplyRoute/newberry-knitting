@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="뉴베리니팅의 제품과 사람, 만드는 과정에 관한 포근한 기록입니다.">
+  <meta name="theme-color" content="#f7f5f0">
+  <meta property="og:title" content="이야기 | 뉴베리니팅">
+  <meta property="og:description" content="오래 좋은 것을 찾고 전하는 뉴베리니팅의 이야기를 기록합니다.">
+  <title>이야기 | 뉴베리니팅</title>
+  <link rel="stylesheet" href="../styles.css">
+</head>
+<body class="story-page-body">
+  <a class="skip-link" href="#main">본문 바로가기</a>
+  <header class="site-header" id="top">
+    <div class="header-inner">
+      <a class="brand" href="../index.html" aria-label="뉴베리니팅 홈">
+        <img src="../assets/newberry-logo.png" alt="뉴베리니팅" width="250" height="112">
+      </a>
+      <button class="menu-button" type="button" aria-expanded="false" aria-controls="site-nav">
+        <span></span><span></span><span></span><span class="sr-only">메뉴 열기</span>
+      </button>
+      <nav class="site-nav" id="site-nav" aria-label="주요 메뉴">
+        <a href="../index.html#home">홈</a>
+        <a href="../about.html">내 소개</a>
+        <a href="../products.html">제품</a>
+        <a class="active" href="./" aria-current="page">이야기</a>
+        <a href="../index.html#contact">연락하기</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="story-page-hero">
+      <p class="eyebrow reveal">WARM STORIES</p>
+      <h1 class="reveal">오래 좋은 것을<br><em>천천히 기록합니다.</em></h1>
+      <p class="reveal">제품 뒤에 있는 사람과 만드는 과정, 겨울마다 다시 꺼내고 싶은 이야기를 나눕니다.</p>
+    </section>
+
+    <section class="story-index-wrap" aria-labelledby="story-list-title">
+      <div class="story-index-heading reveal">
+        <h2 id="story-list-title">모든 이야기</h2>
+        <a class="story-admin-link" href="admin.html">관리</a>
+      </div>
+      <ul class="story-index-list" id="story-list"></ul>
+      <p class="story-load-status" id="story-status" role="status" aria-live="polite">이야기를 불러오는 중입니다.</p>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <a class="brand footer-brand" href="../index.html"><img src="../assets/newberry-logo.png" alt="뉴베리니팅" width="250" height="112"></a>
+    <p>미국의 손끝에서, 당신의 겨울로.</p>
+    <p class="copyright">© <span id="year"></span> NEWBERRY KNITTING</p>
+  </footer>
+
+  <script src="../script.js"></script>
+  <script>
+    (() => {
+      const list = document.querySelector('#story-list');
+      const status = document.querySelector('#story-status');
+      const formatDate = (date) => new Intl.DateTimeFormat('ko-KR', {
+        year: 'numeric', month: '2-digit', day: '2-digit'
+      }).format(new Date(`${date}T00:00:00`));
+
+      fetch('posts.json', { cache: 'no-store' })
+        .then((response) => {
+          if (!response.ok) throw new Error(`HTTP ${response.status}`);
+          return response.json();
+        })
+        .then((posts) => {
+          posts.slice().sort((a, b) => String(b.date || '').localeCompare(String(a.date || ''))).forEach((post) => {
+            const item = document.createElement('li');
+            item.className = 'story-index-card reveal visible';
+            const link = document.createElement('a');
+            link.href = post.url || `post.html?id=${encodeURIComponent(post.id || '')}`;
+
+            const time = document.createElement('time');
+            time.dateTime = post.date || '';
+            time.textContent = formatDate(post.date);
+            const title = document.createElement('h3');
+            title.textContent = post.title || '(제목 없음)';
+            const summary = document.createElement('p');
+            summary.textContent = post.summary || '';
+            const arrow = document.createElement('span');
+            arrow.className = 'story-index-arrow';
+            arrow.setAttribute('aria-hidden', 'true');
+            arrow.textContent = '→';
+
+            link.append(time, title, summary, arrow);
+            item.append(link);
+            list.append(item);
+          });
+          status.hidden = true;
+        })
+        .catch(() => {
+          status.textContent = '이야기를 불러오지 못했습니다. 잠시 후 새로고침해 주세요.';
+        });
+    })();
+  </script>
+</body>
+</html>
