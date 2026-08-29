@@ -7,7 +7,7 @@
   <meta name="theme-color" content="#f5efe5">
   <meta property="og:title" content="뉴베리니팅 — 손끝에서 시작되는 따뜻한 겨울">
   <meta property="og:description" content="미국의 작은 공방에서 정성껏 만든 수제 털장갑을 소개합니다.">
-  <meta property="og:image" content="assets/newberry-mittens.png">
+  <meta property="og:image" content="assets/product-01.jpg">
   <title>뉴베리니팅 | 미국의 수제 털장갑</title>
   <link rel="stylesheet" href="styles.css">
 </head>
@@ -16,8 +16,7 @@
   <header class="site-header" id="top">
     <div class="header-inner">
       <a class="brand" href="#home" aria-label="뉴베리니팅 홈">
-        <span class="brand-mark" aria-hidden="true">N</span>
-        <span>뉴베리니팅</span>
+        <img src="assets/newberry-logo.png" alt="뉴베리니팅" width="250" height="112">
       </a>
       <button class="menu-button" type="button" aria-expanded="false" aria-controls="site-nav">
         <span></span><span></span><span></span><span class="sr-only">메뉴 열기</span>
@@ -48,12 +47,8 @@
         </ul>
       </div>
       <div class="hero-visual reveal">
-        <div class="hero-photo-wrap">
-          <img src="assets/newberry-mittens.png" alt="크림색 담요 위에 놓인 버건디, 아이보리, 세이지색 수제 털장갑" width="1536" height="1024">
-          <span class="photo-label">작은 차이가 만드는<br>단 하나의 장갑</span>
-        </div>
-        <span class="stitch doodle-one" aria-hidden="true">⌁⌁⌁</span>
-        <span class="stitch doodle-two" aria-hidden="true">✣</span>
+        <img class="hero-gloves" src="assets/hero-gloves-cutout.png" alt="아이보리, 그레이, 네이비 색상의 뉴베리니팅 장갑이 원형으로 놓인 모습" width="1086" height="1448">
+        <span class="hero-seal" aria-hidden="true">AMERICAN<br>MADE</span>
       </div>
     </section>
 
@@ -94,22 +89,55 @@
         </div>
         <div class="filters" role="group" aria-label="제품 필터">
           <button class="filter-button active" type="button" data-filter="all">모두</button>
-          <button class="filter-button" type="button" data-filter="classic">클래식</button>
-          <button class="filter-button" type="button" data-filter="color">컬러</button>
+          <button class="filter-button" type="button" data-filter="collection">컬렉션</button>
+          <button class="filter-button" type="button" data-filter="leather">레더 패치</button>
+          <button class="filter-button" type="button" data-filter="basic">베이직</button>
         </div>
       </div>
       <div class="product-grid">
-        <article class="product-card reveal" data-category="color">
-          <div class="product-image crop-red" role="img" aria-label="버건디 눈꽃무늬 수제 장갑"><span class="badge">BEST</span></div>
-          <div class="product-info"><div><p class="product-kind">FOLK COLLECTION</p><h3>크랜베리 스노우 미튼</h3></div><p class="price">₩68,000</p></div>
+        <article class="product-card reveal" data-category="collection">
+          <div class="product-image"><img src="assets/product-01.jpg" alt="다섯 가지 색상의 뉴베리니팅 장갑 컬렉션" width="1499" height="1999"><span class="badge">BEST</span></div>
+          <div class="product-info"><div><p class="product-kind">SIGNATURE COLLECTION</p><h3>뉴베리 시그니처 컬렉션</h3></div><p class="price">₩68,000~</p></div>
         </article>
-        <article class="product-card reveal" data-category="classic">
-          <div class="product-image crop-cream" role="img" aria-label="아이보리와 회색 무늬의 수제 장갑"><span class="badge new">NEW</span></div>
-          <div class="product-info"><div><p class="product-kind">HERITAGE COLLECTION</p><h3>오트밀 헤리티지 미튼</h3></div><p class="price">₩64,000</p></div>
+        <article class="product-card reveal" data-category="collection">
+          <div class="product-image"><img src="assets/product-02.jpg" alt="눈 위에 놓인 네 가지 색상의 클래식 장갑 컬렉션" loading="lazy" width="1499" height="1999"><span class="badge new">NEW</span></div>
+          <div class="product-info"><div><p class="product-kind">CLASSIC COLLECTION</p><h3>클래식 울 컬렉션</h3></div><p class="price">₩64,000~</p></div>
         </article>
-        <article class="product-card reveal" data-category="color">
-          <div class="product-image crop-green" role="img" aria-label="세이지색 수제 장갑"></div>
-          <div class="product-info"><div><p class="product-kind">FOREST COLLECTION</p><h3>세이지 포레스트 미튼</h3></div><p class="price">₩66,000</p></div>
+        <article class="product-card reveal" data-category="leather">
+          <div class="product-image"><img src="assets/product-03.jpg" alt="오트밀 색상의 카멜 레더 패치 장갑" loading="lazy" width="1499" height="1999"></div>
+          <div class="product-info"><div><p class="product-kind">RAGG WOOL · LEATHER</p><h3>오트밀 팜 레더 글러브</h3></div><p class="price">₩68,000</p></div>
+        </article>
+        <article class="product-card reveal" data-category="basic">
+          <div class="product-image"><img src="assets/product-04.jpg" alt="네이비 색상의 베이직 장갑" loading="lazy" width="1499" height="1999"></div>
+          <div class="product-info"><div><p class="product-kind">RAGG WOOL · BASIC</p><h3>네이비 베이직 글러브</h3></div><p class="price">₩58,000</p></div>
+        </article>
+        <article class="product-card reveal" data-category="leather">
+          <div class="product-image"><img src="assets/product-05.jpg" alt="라이트 그레이 색상의 카멜 레더 패치 장갑" loading="lazy" width="1499" height="1999"></div>
+          <div class="product-info"><div><p class="product-kind">RAGG WOOL · LEATHER</p><h3>그레이 팜 레더 글러브</h3></div><p class="price">₩68,000</p></div>
+        </article>
+        <article class="product-card reveal" data-category="basic">
+          <div class="product-image"><img src="assets/product-06.jpg" alt="차콜 색상의 베이직 장갑" loading="lazy" width="1499" height="1999"></div>
+          <div class="product-info"><div><p class="product-kind">RAGG WOOL · BASIC</p><h3>차콜 베이직 글러브</h3></div><p class="price">₩58,000</p></div>
+        </article>
+        <article class="product-card reveal" data-category="leather">
+          <div class="product-image"><img src="assets/product-07.jpg" alt="네이비 색상의 카멜 레더 패치 장갑" loading="lazy" width="1499" height="1999"></div>
+          <div class="product-info"><div><p class="product-kind">RAGG WOOL · LEATHER</p><h3>네이비 팜 레더 글러브</h3></div><p class="price">₩68,000</p></div>
+        </article>
+        <article class="product-card reveal" data-category="basic">
+          <div class="product-image"><img src="assets/product-08.jpg" alt="오트밀 색상의 베이직 장갑" loading="lazy" width="1499" height="1999"></div>
+          <div class="product-info"><div><p class="product-kind">RAGG WOOL · BASIC</p><h3>오트밀 베이직 글러브</h3></div><p class="price">₩58,000</p></div>
+        </article>
+        <article class="product-card reveal" data-category="basic">
+          <div class="product-image"><img src="assets/product-09.jpg" alt="라이트 그레이 색상의 베이직 장갑" loading="lazy" width="1499" height="1999"></div>
+          <div class="product-info"><div><p class="product-kind">RAGG WOOL · BASIC</p><h3>라이트 그레이 베이직 글러브</h3></div><p class="price">₩58,000</p></div>
+        </article>
+        <article class="product-card reveal" data-category="leather">
+          <div class="product-image"><img src="assets/product-10.jpg" alt="차콜 색상의 블랙 레더 패치 장갑" loading="lazy" width="1499" height="1999"></div>
+          <div class="product-info"><div><p class="product-kind">RAGG WOOL · LEATHER</p><h3>차콜 블랙 레더 글러브</h3></div><p class="price">₩68,000</p></div>
+        </article>
+        <article class="product-card reveal" data-category="leather">
+          <div class="product-image"><img src="assets/product-11.jpg" alt="블랙 색상의 카멜 레더 패치 장갑" loading="lazy" width="1505" height="1999"></div>
+          <div class="product-info"><div><p class="product-kind">RAGG WOOL · LEATHER</p><h3>블랙 팜 레더 글러브</h3></div><p class="price">₩68,000</p></div>
         </article>
       </div>
       <p class="stock-note reveal"><span aria-hidden="true">※</span> 모든 제품은 소량 입고되며, 손뜨개 특성상 모양과 무늬에 작은 차이가 있습니다.</p>
@@ -156,7 +184,7 @@
   </main>
 
   <footer class="site-footer">
-    <a class="brand footer-brand" href="#top"><span class="brand-mark" aria-hidden="true">N</span><span>뉴베리니팅</span></a>
+    <a class="brand footer-brand" href="#top"><img src="assets/newberry-logo.png" alt="뉴베리니팅" width="250" height="112"></a>
     <p>미국의 손끝에서, 당신의 겨울로.</p>
     <p class="copyright">© <span id="year"></span> NEWBERRY KNITTING</p>
   </footer>
