@@ -138,10 +138,12 @@ function createProductCard(product) {
   const buyButton = document.createElement('a');
   buyButton.className = 'buy-button';
   buyButton.href = product.url;
-  buyButton.target = '_blank';
-  buyButton.rel = 'noopener noreferrer';
-  buyButton.textContent = '구매하기';
-  buyButton.setAttribute('aria-label', `${product.name} 구매하기 (새 탭)`);
+  buyButton.textContent = '장바구니 담기';
+  buyButton.dataset.cartAdd = '';
+  buyButton.dataset.name = product.name;
+  buyButton.dataset.price = String(product.price || 0);
+  buyButton.dataset.url = product.url;
+  buyButton.setAttribute('aria-label', `${product.name} 장바구니 담기`);
   info.append(details, buyButton);
   card.append(imageLink, info);
   return card;
