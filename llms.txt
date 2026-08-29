@@ -9,6 +9,7 @@
 - [내 소개](https://supplyroute.github.io/newberry-knitting/about.html): 뉴베리니팅을 한국에 소개하게 된 배경과 약속
 - [제품](https://supplyroute.github.io/newberry-knitting/products.html): 제품 목록과 구매 링크
 - [이야기](https://supplyroute.github.io/newberry-knitting/story/): 장갑과 브랜드에 관한 글
+- [연락하기](https://supplyroute.github.io/newberry-knitting/contact.html): 이메일, SNS와 스토어 링크
 
 ## 이야기(블로그)
 
