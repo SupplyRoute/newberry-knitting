@@ -1,5 +1,5 @@
 User-agent: *
 Allow: /
-Disallow: /newberry-knitting/story/admin.html
+Disallow: /story/admin.html
 
-Sitemap: https://supplyroute.github.io/newberry-knitting/sitemap.xml
+Sitemap: https://newberry-knitting.vercel.app/sitemap.xml

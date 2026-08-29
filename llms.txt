@@ -5,16 +5,16 @@
 
 ## 주요 페이지
 
-- [홈](https://supplyroute.github.io/newberry-knitting/): 브랜드 소개와 대표 제품, 최신 이야기
-- [내 소개](https://supplyroute.github.io/newberry-knitting/about.html): 뉴베리니팅을 한국에 소개하게 된 배경과 약속
-- [제품](https://supplyroute.github.io/newberry-knitting/products.html): 제품 목록과 구매 링크
-- [이야기](https://supplyroute.github.io/newberry-knitting/story/): 장갑과 브랜드에 관한 글
-- [연락하기](https://supplyroute.github.io/newberry-knitting/contact.html): 이메일, SNS와 스토어 링크
+- [홈](https://newberry-knitting.vercel.app/): 브랜드 소개, 대표 제품과 최신 이야기
+- [내 소개](https://newberry-knitting.vercel.app/about.html): 뉴베리니팅을 한국에 소개하게 된 배경과 약속
+- [제품](https://newberry-knitting.vercel.app/products.html): 장갑 제품명, 가격, 이미지와 구매 링크
+- [이야기](https://newberry-knitting.vercel.app/story/): 장갑과 브랜드에 관한 블로그 글
+- [연락하기](https://newberry-knitting.vercel.app/contact.html): 이메일, SNS와 스토어 링크
 
 ## 이야기(블로그)
 
-- [뉴베리니팅 장갑은 어떤 브랜드인가요?](https://supplyroute.github.io/newberry-knitting/story/what-is-newberry-knitting.html)
-- [래그울 장갑은 왜 겨울에 잘 어울리나요?](https://supplyroute.github.io/newberry-knitting/story/why-ragg-wool-gloves-for-winter.html)
-- [뉴베리니팅 장갑은 겨울 코디에 어떻게 매치하나요?](https://supplyroute.github.io/newberry-knitting/story/how-to-style-newberry-gloves.html)
+- [뉴베리니팅 장갑은 어떤 브랜드인가요?](https://newberry-knitting.vercel.app/story/what-is-newberry-knitting.html): 1946년 뉴욕에서 시작한 가족 소유 장갑 브랜드의 역사와 제품 기준을 소개합니다.
+- [래그울 장갑은 왜 겨울에 잘 어울리나요?](https://newberry-knitting.vercel.app/story/why-ragg-wool-gloves-for-winter.html): 울과 나일론을 조합한 래그울의 특징과 겨울철 활용법을 설명합니다.
+- [뉴베리니팅 장갑은 겨울 코디에 어떻게 매치하나요?](https://newberry-knitting.vercel.app/story/how-to-style-newberry-gloves.html): 오트밀·그레이·차콜·네이비 장갑을 겨울 아우터에 매치하는 기준을 안내합니다.
 
 작성자: 한지정 · 뉴베리니팅 브랜드 대표
