@@ -138,6 +138,20 @@ function createHomeStoryCard(post) {
   article.className = 'home-story-card reveal visible';
   const link = document.createElement('a');
   link.href = post.url ? `story/${post.url}` : `story/post.html?id=${encodeURIComponent(post.id || '')}`;
+  if (post.image) {
+    const media = document.createElement('div');
+    media.className = 'home-story-media';
+    const image = document.createElement('img');
+    image.src = post.image;
+    image.alt = post.imageAlt || post.title || '';
+    image.loading = 'lazy';
+    image.width = 1170;
+    image.height = 2532;
+    media.append(image);
+    link.append(media);
+  }
+  const copy = document.createElement('div');
+  copy.className = 'home-story-copy';
   const time = document.createElement('time');
   time.dateTime = post.date || '';
   time.textContent = formatDate(post.date);
@@ -148,7 +162,8 @@ function createHomeStoryCard(post) {
   const readMore = document.createElement('span');
   readMore.className = 'home-story-link';
   readMore.textContent = '읽어보기 →';
-  link.append(time, title, summary, readMore);
+  copy.append(time, title, summary, readMore);
+  link.append(copy);
   article.append(link);
   return article;
 }
