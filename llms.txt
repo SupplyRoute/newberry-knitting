@@ -1,0 +1,19 @@
+# 뉴베리니팅
+
+뉴베리니팅은 1946년 미국 뉴욕주에서 시작한 가족 경영 니트 브랜드의 장갑을 한국에 소개합니다.
+판매 제품은 래그울 소재와 사슴가죽 디테일을 사용한 핑거리스·글로밋 니트 장갑입니다.
+
+## 주요 페이지
+
+- [홈](https://supplyroute.github.io/newberry-knitting/): 브랜드 소개와 대표 제품, 최신 이야기
+- [내 소개](https://supplyroute.github.io/newberry-knitting/about.html): 뉴베리니팅을 한국에 소개하게 된 배경과 약속
+- [제품](https://supplyroute.github.io/newberry-knitting/products.html): 제품 목록과 구매 링크
+- [이야기](https://supplyroute.github.io/newberry-knitting/story/): 장갑과 브랜드에 관한 글
+
+## 이야기(블로그)
+
+- [뉴베리니팅 장갑은 어떤 브랜드인가요?](https://supplyroute.github.io/newberry-knitting/story/what-is-newberry-knitting.html)
+- [래그울 장갑은 왜 겨울에 잘 어울리나요?](https://supplyroute.github.io/newberry-knitting/story/why-ragg-wool-gloves-for-winter.html)
+- [뉴베리니팅 장갑은 겨울 코디에 어떻게 매치하나요?](https://supplyroute.github.io/newberry-knitting/story/how-to-style-newberry-gloves.html)
+
+작성자: 한지정 · 뉴베리니팅 브랜드 대표

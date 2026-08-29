@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>뉴베리니팅 포근한 이야기</title>
+    <link>https://supplyroute.github.io/newberry-knitting/story/</link>
+    <description>뉴베리니팅 장갑과 오래 쓰는 겨울 물건에 관한 이야기</description>
+    <language>ko-KR</language>
+    <lastBuildDate>Sat, 29 Aug 2026 00:00:00 +0900</lastBuildDate>
+    <atom:link href="https://supplyroute.github.io/newberry-knitting/feed.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>뉴베리니팅 장갑은 어떤 브랜드인가요?</title>
+      <link>https://supplyroute.github.io/newberry-knitting/story/what-is-newberry-knitting.html</link>
+      <guid isPermaLink="true">https://supplyroute.github.io/newberry-knitting/story/what-is-newberry-knitting.html</guid>
+      <pubDate>Sat, 29 Aug 2026 00:00:00 +0900</pubDate>
+      <description>1946년 뉴욕주의 작은 마을에서 시작한 뉴베리니팅의 역사와 장갑에 담긴 기준을 소개합니다.</description>
+    </item>
+    <item>
+      <title>래그울 장갑은 왜 겨울에 잘 어울리나요?</title>
+      <link>https://supplyroute.github.io/newberry-knitting/story/why-ragg-wool-gloves-for-winter.html</link>
+      <guid isPermaLink="true">https://supplyroute.github.io/newberry-knitting/story/why-ragg-wool-gloves-for-winter.html</guid>
+      <pubDate>Fri, 28 Aug 2026 00:00:00 +0900</pubDate>
+      <description>울과 나일론을 함께 사용한 래그울의 특징과 뉴베리니팅 장갑의 실용적인 디테일을 살펴봅니다.</description>
+    </item>
+    <item>
+      <title>뉴베리니팅 장갑은 겨울 코디에 어떻게 매치하나요?</title>
+      <link>https://supplyroute.github.io/newberry-knitting/story/how-to-style-newberry-gloves.html</link>
+      <guid isPermaLink="true">https://supplyroute.github.io/newberry-knitting/story/how-to-style-newberry-gloves.html</guid>
+      <pubDate>Thu, 27 Aug 2026 00:00:00 +0900</pubDate>
+      <description>오트밀, 그레이, 차콜, 네이비 장갑을 일상적인 겨울 옷에 자연스럽게 매치하는 방법을 안내합니다.</description>
+    </item>
+  </channel>
+</rss>
