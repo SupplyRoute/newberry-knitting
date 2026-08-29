@@ -34,7 +34,11 @@ const navLinks = document.querySelectorAll('.site-nav a');
 const sectionObserver = new IntersectionObserver((entries) => {
   entries.forEach((entry) => {
     if (entry.isIntersecting) {
-      navLinks.forEach((link) => link.classList.toggle('active', link.hash === `#${entry.target.id}`));
+      navLinks.forEach((link) => {
+        if (!link.hasAttribute('aria-current')) {
+          link.classList.toggle('active', link.hash === `#${entry.target.id}`);
+        }
+      });
     }
   });
 }, { rootMargin: '-40% 0px -52%', threshold: 0 });
@@ -51,11 +55,14 @@ document.querySelectorAll('.filter-button').forEach((button) => {
   });
 });
 
-document.querySelector('#contact-form').addEventListener('submit', (event) => {
-  event.preventDefault();
-  const name = new FormData(event.currentTarget).get('name').trim();
-  event.currentTarget.querySelector('.form-status').textContent = `${name}님, 메시지를 잘 받았어요. 따뜻한 답장으로 찾아갈게요!`;
-  event.currentTarget.reset();
-});
+const contactForm = document.querySelector('#contact-form');
+if (contactForm) {
+  contactForm.addEventListener('submit', (event) => {
+    event.preventDefault();
+    const name = new FormData(event.currentTarget).get('name').trim();
+    event.currentTarget.querySelector('.form-status').textContent = `${name}님, 메시지를 잘 받았어요. 따뜻한 답장으로 찾아갈게요!`;
+    event.currentTarget.reset();
+  });
+}
 
 document.querySelector('#year').textContent = new Date().getFullYear();
