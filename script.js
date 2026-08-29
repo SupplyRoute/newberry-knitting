@@ -23,6 +23,48 @@ if (header) {
   window.addEventListener('scroll', () => header.classList.toggle('scrolled', window.scrollY > 16), { passive: true });
 }
 
+const heroScrubVideo = document.querySelector('[data-hero-scrub]');
+if (heroScrubVideo) {
+  const syncHeroVideo = () => {
+    if (!Number.isFinite(heroScrubVideo.duration) || heroScrubVideo.duration <= 0) return;
+    const hero = heroScrubVideo.closest('.hero');
+    if (!hero) return;
+    const start = hero.offsetTop;
+    const distance = Math.max(hero.offsetHeight, 1);
+    const progress = Math.min(Math.max((window.scrollY - start) / distance, 0), 1);
+    const targetTime = progress * heroScrubVideo.duration;
+    if (Math.abs(heroScrubVideo.currentTime - targetTime) > 0.035) {
+      heroScrubVideo.currentTime = targetTime;
+    }
+  };
+
+  let scrubFrame = 0;
+  let lastScrubY = -1;
+  let lastScrubWidth = -1;
+  const requestHeroSync = () => {
+    if (scrubFrame) return;
+    scrubFrame = window.requestAnimationFrame(() => {
+      scrubFrame = 0;
+      syncHeroVideo();
+    });
+  };
+  const watchHeroScroll = () => {
+    if (window.scrollY !== lastScrubY || window.innerWidth !== lastScrubWidth) {
+      lastScrubY = window.scrollY;
+      lastScrubWidth = window.innerWidth;
+      syncHeroVideo();
+    }
+    window.requestAnimationFrame(watchHeroScroll);
+  };
+
+  heroScrubVideo.addEventListener('loadedmetadata', syncHeroVideo);
+  heroScrubVideo.addEventListener('loadeddata', syncHeroVideo);
+  window.addEventListener('scroll', requestHeroSync, { passive: true });
+  window.addEventListener('resize', requestHeroSync);
+  syncHeroVideo();
+  watchHeroScroll();
+}
+
 const revealObserver = new IntersectionObserver((entries) => {
   entries.forEach((entry) => {
     if (entry.isIntersecting) {

@@ -36,9 +36,10 @@ button { color: inherit; }
 .menu-button { display: none; border: 0; background: none; padding: .5rem; }
 .menu-button span:not(.sr-only) { display: block; width: 24px; height: 1px; margin: 5px 0; background: var(--ink); transition: transform .25s, opacity .25s; }
 
-.hero { position: relative; width: 100%; min-height: calc(100vh - 82px); margin: auto; padding: 5rem max(24px, calc((100% - 1320px)/2)); display: flex; align-items: center; overflow: hidden; color: white; background: #313637 url("assets/hero-model-landscape.png") center center / cover no-repeat; }
-.hero::before { content: ""; position: absolute; inset: 0; background: linear-gradient(90deg, rgba(18,22,22,.79) 0%, rgba(18,22,22,.58) 35%, rgba(18,22,22,.10) 67%, rgba(18,22,22,.04) 100%); }
-.hero-copy { position: relative; z-index: 1; width: min(48%, 610px); }
+.hero { position: relative; width: 100%; min-height: calc(100vh - 82px); margin: auto; padding: 5rem max(24px, calc((100% - 1320px)/2)); display: flex; align-items: center; overflow: hidden; color: white; background: #313637 url("assets/hero-poster.jpg") center center / cover no-repeat; }
+.hero-video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center center; z-index: 0; }
+.hero::before { content: ""; position: absolute; inset: 0; z-index: 1; background: linear-gradient(90deg, rgba(18,22,22,.79) 0%, rgba(18,22,22,.58) 35%, rgba(18,22,22,.10) 67%, rgba(18,22,22,.04) 100%); pointer-events: none; }
+.hero-copy { position: relative; z-index: 2; width: min(48%, 610px); }
 .eyebrow { margin: 0 0 1.2rem; color: var(--berry); font-family: var(--en); font-size: .72rem; font-weight: 700; letter-spacing: .18em; }
 .hero .eyebrow { color: white; opacity: .76; }
 h1, h2, h3, p { margin-top: 0; }
@@ -284,6 +285,7 @@ h2 { margin-bottom: 1.5rem; font-size: clamp(2.7rem, 4.5vw, 5rem); }
   .site-nav.open { transform: none; }
   body.menu-open { overflow: hidden; }
   .hero { min-height: 780px; background-position: 62% center; }
+  .hero-video { object-position: 62% center; }
   .hero::before { background: linear-gradient(90deg, rgba(18,22,22,.78) 0%, rgba(18,22,22,.50) 52%, rgba(18,22,22,.10) 100%); }
   .hero-copy { width: min(62%, 560px); padding-right: 0; }
   .about { grid-template-columns: 1fr; }
@@ -306,6 +308,7 @@ h2 { margin-bottom: 1.5rem; font-size: clamp(2.7rem, 4.5vw, 5rem); }
   .header-inner { height: 70px; }
   .brand img { width: 150px; }
   .hero { min-height: calc(100svh - 70px); padding: 5rem 16px 3rem; align-items: flex-end; background-position: 66% center; }
+  .hero-video { object-position: 66% center; }
   .hero::before { background: linear-gradient(180deg, rgba(18,22,22,.05) 18%, rgba(18,22,22,.25) 48%, rgba(18,22,22,.84) 100%); }
   .hero-copy { width: 100%; }
   h1 { font-size: clamp(3.25rem, 16vw, 5rem); }
