@@ -54,13 +54,15 @@ html.rdcart-locked, body.rdcart-locked { overflow: hidden; }
 
 /* ───────── 서랍 ───────── */
 .rdcart {
+  display: none;
   position: fixed; inset: 0; z-index: 100;
+  overflow: hidden;
   pointer-events: none;
   font-family: var(--cart-font);
   color: var(--cart-ink);
   -webkit-text-size-adjust: 100%;
 }
-.rdcart--open { pointer-events: auto; }
+.rdcart--open { display: block; pointer-events: auto; }
 
 .rdcart__back {
   position: absolute; inset: 0;
